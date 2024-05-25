@@ -6,11 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  name:string = "Surya";
-  data:string = "Information"
-  servers:string[]=[];
-
-  addServer(){
-    this.servers.push(this.data);
+  loadedFeature:string = 'recipe';
+  
+  onNavigate(feature:string){
+    this.loadedFeature = feature;
   }
+
 }
