@@ -6,9 +6,9 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 @Injectable({ providedIn: 'root' })
 export class RecipeService {
 
-  recipeSelected = new EventEmitter<Recipe>();
   private recipes: Recipe[] = [
     new Recipe(
+      1,
       'Biryani',
       'Finger Licking Good Hyderabadi Dum Biryani',
       'https://www.licious.in/blog/wp-content/uploads/2022/06/chicken-hyderabadi-biryani-01.jpg',
@@ -21,6 +21,7 @@ export class RecipeService {
       ]
     ),
     new Recipe(
+      2,
       'Noodles',
       'Round Round Noodles',
       'https://images.unsplash.com/photo-1585032226651-759b368d7246?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bm9vZGxlc3xlbnwwfHwwfHx8MA%3D%3D',
@@ -38,6 +39,10 @@ export class RecipeService {
 
   getRecipes():Recipe[]{
     return this.recipes.slice();
+  }
+
+  getRecipeByID(id: number): Recipe | undefined {
+    return this.recipes.find(recipe => recipe.id === id);
   }
 
   addIngredientsToShoppingList(ingredients:Ingredient[]){
