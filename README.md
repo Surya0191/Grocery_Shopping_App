@@ -1,27 +1,39 @@
-# ShoppingApp
+# Recipe Book App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
+This is a Recipe Book application built with Angular. The application allows users to browse, view, and manage recipes, as well as manage a shopping list.
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- View a list of recipes
+- View detailed information about a recipe
+- Add, edit, and delete recipes
+- Manage a shopping list
+- Custom dropdown directive
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To get a local copy up and running, follow these simple steps.
 
-## Running unit tests
+npm install
+ng serve
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Prerequisites
 
-## Running end-to-end tests
+Make sure you have the following installed on your machine:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- [Node.js](https://nodejs.org/) (which includes npm)
 
-## Further help
+### Clone the Repository
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+git clone https://github.com/Surya0191/Grocery_Shopping_App.git
+cd Grocery_Shopping_App
