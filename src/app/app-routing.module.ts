@@ -9,7 +9,7 @@ import { RecipeResolverService } from "./recipes/recipe-resolver.service";
 import { AuthenticateComponent } from "./auth/authenticate/authenticate.component";
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
+  { path: '', redirectTo: '/auth', pathMatch: 'full' },
   { path: 'recipes', component: RecipesComponent, children:[
     {path:'', component:RecipeStartComponent},
     {path:'new', component:RecipeEditComponent},
@@ -19,7 +19,7 @@ const appRoutes: Routes = [
   ]},
   { path: 'shopping-list', component: ShoppingListComponent },
   { path: 'auth', component: AuthenticateComponent },
-  { path: '**', redirectTo: '/recipes'},
+  { path: '**', redirectTo: '/auth'},
 ];
 
 @NgModule({

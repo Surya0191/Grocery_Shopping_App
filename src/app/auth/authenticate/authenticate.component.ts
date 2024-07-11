@@ -1,17 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-authenticate',
   templateUrl: './authenticate.component.html',
 })
-export class AuthenticateComponent {
-  constructor(private authService: AuthService) {}
+export class AuthenticateComponent implements OnDestroy{
+  constructor(private authService: AuthService, private router:Router) {}
 
   isLoading = false;
   isLoginMode = true;
   error: string = null;
+
+  authSubscription:Subscription
 
   switchMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -23,30 +27,32 @@ export class AuthenticateComponent {
     }
     this.isLoading = true;
     if (this.isLoginMode) {
-      this.authService.login(form.value.email, form.value.password).subscribe(
+      this.authSubscription = this.authService.login(form.value.email, form.value.password).subscribe(
         (response) => {
           this.isLoading = false;
-          console.log(response);
+          this.router.navigate(['/recipes']);
         },
         (errorMessage) => {
           this.isLoading = false;
           this.error = errorMessage;
-          console.log(errorMessage);
         }
       );
     } else {
-      this.authService.signup(form.value.email, form.value.password).subscribe(
+      this.authSubscription = this.authService.signup(form.value.email, form.value.password).subscribe(
         (response) => {
           this.isLoading = false;
-          console.log(response);
+          this.router.navigate(['/recipes']);
         },
         (errorMessage) => {
           this.isLoading = false;
           this.error = errorMessage;
-          console.log(errorMessage);
         }
       );
     }
     form.reset();
+  }
+
+  ngOnDestroy(): void {
+    this.authSubscription?.unsubscribe();
   }
 }
