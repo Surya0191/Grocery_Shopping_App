@@ -4,8 +4,15 @@
     </div>
 </div>
 <hr>
-<div class="row">
+<div class="row" *ngIf="recipes.length > 0; else noRecipes">
     <div class="col-xs-12">
         <app-recipe-item *ngFor="let recipeEl of recipes" [recipe]="recipeEl"></app-recipe-item>
     </div>
 </div>
+<ng-template #noRecipes>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <p>No recipes found. Please <a style="cursor: pointer;" (click)="fetchRecipes()">fetch recipes</a> to see them.</p>
+        </div>
+    </div>
+</ng-template>

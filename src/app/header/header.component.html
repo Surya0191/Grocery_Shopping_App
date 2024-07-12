@@ -1,7 +1,10 @@
 <nav class="navbar navbar-default">
     <div class="container">
-        <div class="navbar navbar-header">
-            <a class="navbar-brand">Recipe Book</a>
+        <div class="navbar-header">
+            <a class="navbar-brand" [routerLink]="'/recipes'" style="display: flex; align-items: center;">
+                <img src="https://cdn-icons-png.flaticon.com/512/5540/5540650.png" alt="Recipe Book Icon" style="height: 27px; margin-right: 10px;">
+                Recipe Book
+            </a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -10,11 +13,11 @@
                 <li routerLinkActive="active"><a [routerLink]="'/shopping-list'">Shopping List</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a style="cursor: pointer;" *ngIf="isAuthenticated" (click)="onLogout()">Logout</a>
+                <li *ngIf="isAuthenticated">
+                    <a style="cursor: pointer;" (click)="onLogout()">Logout</a>
                 </li>
                 <li *ngIf="isAuthenticated" class="dropdown" appDropdown>
-                    <a class="dopdown-toggle" role="button">Manage <span class="caret"></span></a>
+                    <a class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a style="cursor: pointer;" (click)="onSaveData()">Save Data</a></li>
                         <li><a style="cursor: pointer;" (click)="onFetchData()">Fetch Data</a></li>
