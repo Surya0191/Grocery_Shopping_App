@@ -1,4 +1,13 @@
-.recipe-image {
-    max-width: 100px; /* Adjust the maximum width as per your design */
-    height: auto;
+.list-group-item {
+    overflow: hidden; /* Ensures no overflow outside the list item */
+}
+
+.list-group-item .pull-left {
+    width: 70%; /* Adjust as needed */
+    padding-right: 15px; /* Add padding to separate from the image */
+}
+
+.list-group-item .pull-right {
+    width: 30%; /* Adjust as needed */
+    text-align: right; /* Align image to the right */
 }
