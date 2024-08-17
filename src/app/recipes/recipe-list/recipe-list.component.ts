@@ -11,7 +11,7 @@ import { DataStorageService } from 'src/app/shared/data-storage.service';
 })
 export class RecipeListComponent implements OnInit,OnDestroy{
 
-  recipes:Recipe[];
+  recipes:Recipe[] = [];
   subscription:Subscription;
 
   constructor(private recipeService:RecipeService, private dataStorageService:DataStorageService) { 
@@ -21,7 +21,7 @@ export class RecipeListComponent implements OnInit,OnDestroy{
     this.subscription = this.recipeService.recipeUpdated.subscribe((recipes:Recipe[])=>{
       this.recipes = recipes;
     });
-    this.recipes = this.recipeService.getRecipes();
+    //this.recipes = this.recipeService.getRecipes();
   }
 
   fetchRecipes(){
